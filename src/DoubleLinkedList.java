@@ -9,6 +9,7 @@ public class DoubleLinkedList {
         Node previous;
     }
 
+    // Метод разворота двунаправленного связного списка
     public void reverse() {
         Node currentNode = head;
         while (currentNode != null) {

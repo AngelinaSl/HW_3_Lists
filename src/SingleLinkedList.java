@@ -6,6 +6,25 @@ public class SingleLinkedList {
         Node next;
     }
 
+// Метод разворота однонаправленного связного списка
+    public void reverse() {
+        if (head != null && head.next != null) {
+            Node temp = head;
+            reverse(head.next, head);
+            temp.next = null;
+        }
+    }
+
+    private void reverse(Node currentNode, Node previousNode) {
+        if (currentNode.next == null) {
+            head = currentNode;
+        } else {
+            reverse(currentNode.next, currentNode);
+        }
+        currentNode.next = previousNode;
+        previousNode.next = null;
+    }
+
     public void addToStart(int value) {
         Node newNode = new Node();
         newNode.value = value;
@@ -53,23 +72,6 @@ public class SingleLinkedList {
         return false;
     }
 
-    public void reverse() {
-        if (head != null && head.next != null) {
-            Node temp = head;
-            reverse(head.next, head);
-            temp.next = null;
-        }
-    }
-
-    private void reverse(Node currentNode, Node previousNode) {
-        if (currentNode.next == null) {
-            head = currentNode;
-        } else {
-            reverse(currentNode.next, currentNode);
-        }
-        currentNode.next = previousNode;
-        previousNode.next = null;
-    }
 
     public void bubbleSort() {
         boolean sort = true;
